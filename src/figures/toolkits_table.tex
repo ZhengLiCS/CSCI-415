@@ -1,0 +1,304 @@
+\documentclass{article}
+\usepackage[table]{xcolor}
+% \usepackage[margin=1in]{geometry}
+\usepackage[paperheight=320mm,paperwidth=175mm,margin={0mm, 0mm}]{geometry}  % TODO
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{amssymb} 
+
+\setlist{nolistsep}
+\definecolor{green}{HTML}{009900}
+\definecolor{myGreen}{HTML}{009900}
+
+\renewcommand{\familydefault}{\sfdefault}
+\renewcommand{\arraystretch}{1.5}
+\definecolor{Gray}{gray}{0.9}
+
+\begin{document}
+
+\begin{center}
+\begin{tabularx}{\textwidth}[t]{p{45mm} p{45mm} p{70mm} c c}
+\arrayrulecolor{green}\hline
+% -----------------------------------------------------------------
+\textbf{\textcolor{green}{\large Preprocessing}} & package/link/comment & ~~~ method/class(Parallel:$\circ$, Need label: *) \\
+\hline
+\rowcolor{Gray}
+I/O 
+& 
+\begin{minipage}[t]{\linewidth}%
+	\href{https://pandas.pydata.org/docs/user_guide/io.html}{\color{teal}Pandas}\\
+	\textbf{The main method for reading/writing CSV, JSON, XML etc. files. It can parse the data type of columns automatically.}
+\end{minipage}
+& 
+\begin{minipage}[t]{\linewidth}%
+	\begin{itemize} 
+		\item pandas.read\_csv 
+		\item pandas.read\_sql\_table 
+		\item pandas.DataFrame.to\_json 
+		\item pandas.DataFrame.to\_xml 
+		\item etc. 
+	\end{itemize}
+\end{minipage}
+\\
+
+\rowcolor{Gray}
+& 
+\begin{minipage}[t]{\linewidth}%
+	\href{https://numpy.org/doc/stable/reference/generated/numpy.save.html}{\color{teal}Numpy} \\
+	\textbf{The main method for saving a temporary n-dimensional array/tensor.}
+\end{minipage}
+& 
+\begin{minipage}[t]{\linewidth} 
+	\begin{itemize} 
+		\item numpy.save 
+		\item numpy.load 
+	\end{itemize} 
+\end{minipage}
+\\
+
+
+Normalization 
+& 
+\begin{minipage}[t]{\linewidth}%
+	\href{https://scikit-learn.org/stable/modules/preprocessing.html}{\color{teal}scikit-learn}
+\end{minipage} 
+& 
+\begin{minipage}[t]{\linewidth} 
+	\begin{itemize} 
+		\item sklearn.preprocessing.normalize 
+	\end{itemize}
+\end{minipage}
+\\
+
+\rowcolor{Gray}
+Encoding Categorical Features 
+& 
+\begin{minipage}[t]{\linewidth}%
+\href{https://scikit-learn.org/stable/modules/preprocessing.html}{\color{teal}scikit-learn} \\
+\textbf{Convert categorical features to integer codes.}
+\end{minipage} 
+& 
+\begin{minipage}[t]{\linewidth} 
+	\begin{itemize} 
+		\item sklearn.preprocessing.OrdinalEncoder 
+		\item sklearn.preprocessing.OneHotEncoder 
+		\item etc. 
+	\end{itemize} 
+\end{minipage}
+\\
+
+\rowcolor{Gray}
+& 
+\begin{minipage}[t]{\linewidth}%
+	\href{https://www.tensorflow.org/api_docs/python/tf/one_hot}{\color{teal}tensorflow} \\
+	\textbf{Convert categorical features to integer codes.}
+\end{minipage} 
+& 
+\begin{minipage}[t]{\linewidth} 
+	\begin{itemize} 
+		\item[$\circ$] tf.one\_hot 
+	\end{itemize} 
+\end{minipage}
+\\
+
+Discretization & 
+\begin{minipage}[t]{\linewidth}%
+	\href{https://scikit-learn.org/stable/modules/preprocessing.html}{\color{teal}scikit-learn}\\
+	\textbf{Partition continuous features into discrete values.}
+\end{minipage} 
+& 
+\begin{minipage}[t]{\linewidth} 
+	\begin{itemize} 
+		\item sklearn.preprocessing.KBinsDiscretizer 
+		\item sklearn.preprocessing.Binarizer 
+		\item etc. 
+	\end{itemize} 
+\end{minipage}
+\\
+
+\rowcolor{Gray}
+Working with Missing Data 
+& 
+\begin{minipage}[t]{\linewidth}%
+	\href{https://pandas.pydata.org/docs/user_guide/missing_data.html}{\color{teal}Pandas} \\
+	\textbf{Detect/Fill/Drop the missing data.}
+\end{minipage} 
+& 
+\begin{minipage}[t]{\linewidth} 
+	\begin{itemize} 
+		\item pandas.DataFrame.fillna 
+		\item pandas.DataFrame.dropna 
+		\item pandas.DataFrame.interpolate 
+		\item etc. 
+	\end{itemize} 
+\end{minipage}
+\\
+
+Noise Reduction 
+& 
+\begin{minipage}[t]{\linewidth}%
+	\href{https://scikit-learn.org/stable/modules/clustering.html}{\color{teal}scikit-learn} \\
+	\textbf{Remove samples with noise by using clustering.}
+\end{minipage} 
+& 
+\begin{minipage}[t]{\linewidth} 
+	\begin{itemize} 
+		\item sklearn.cluster.KMeans 
+		\item sklearn.cluster.AffinityPropagation 
+		\item sklearn.cluster.DBSCAN 
+		\item etc. 
+	\end{itemize} 
+\end{minipage}
+\\
+
+& 
+\begin{minipage}[t]{\linewidth}%
+	\href{https://numpy.org/doc/stable/reference/generated/numpy.convolve.html}{\color{teal}Numpy}/\href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.convolve.html}{\color{teal}Scipy}/\href{https://www.tensorflow.org/api_docs/python/tf/nn/conv1d}{\color{teal}Numpy} \\
+	\textbf{Remove the noise from a sequence by using the convolution operator(filter).}
+\end{minipage} 
+& 
+\begin{minipage}[t]{\linewidth} 
+	\begin{itemize} 
+		\item numpy.convolve 
+		\item scipy.signal.convolve 
+		\item[$\circ$] tf.nn.conv1d 
+	\end{itemize} 
+\end{minipage}
+\\
+
+& 
+\begin{minipage}[t]{\linewidth}%
+	\href{https://scikit-learn.org/stable/modules/linear_model.html}{\color{teal}scikit-learn} \\
+	\textbf{Remove the noise from a  sequence by using the Regression.}
+\end{minipage} 
+& 
+\begin{minipage}[t]{\linewidth} 
+	\begin{itemize} 
+		\item sklearn.linear\_model.LinearRegression
+	\end{itemize} 
+\end{minipage}
+\\
+
+\rowcolor{Gray}
+Data Reduction
+& 
+\begin{minipage}[t]{\linewidth}%
+	\href{https://scikit-learn.org/stable/modules/decomposition.html}{\color{teal}scikit-learn} \\
+	\textbf{Reduce the number of attributes by using the SVD algorithm of matrix.}
+\end{minipage} 
+& 
+\begin{minipage}[t]{\linewidth} 
+	\begin{itemize} 
+		\item sklearn.decomposition.PCA
+		\item sklearn.decomposition.KernelPCA
+		\item etc.
+	\end{itemize} 
+\end{minipage}
+\\
+
+\rowcolor{Gray}
+& 
+\begin{minipage}[t]{\linewidth}%
+	\href{https://docs.scipy.org/doc/scipy/tutorial/stats.html}{\color{teal}scikit-learn} \\
+	\textbf{Remove redundant attributes by correlation analysis.}
+\end{minipage} 
+& 
+\begin{minipage}[t]{\linewidth} 
+	\begin{itemize} 
+		\item[*] scipy.stats.chisquare
+		\item etc.
+	\end{itemize} 
+\end{minipage}
+\\
+
+% -----------------------------------------------------------------
+\arrayrulecolor{green}\hline
+\textbf{\textcolor{green}{\large Data Visualization}} & & \\
+\hline
+\rowcolor{Gray}
+Bar maps, curves, and pie charts
+& 
+\begin{minipage}[t]{\linewidth}%
+	\href{https://matplotlib.org/}{\color{teal} matplotlib}\\
+	\textbf{The most popular plotting library for the Python programming language.}
+\end{minipage}
+& 
+\begin{minipage}[t]{\linewidth}%
+	\begin{itemize} 
+		\item matplotlib
+	\end{itemize}
+\end{minipage}
+\\
+
+model graph, histograms of training logs
+& 
+\begin{minipage}[t]{\linewidth}%
+	\href{https://www.tensorflow.org/tensorboard}{\color{teal} tensorboard}\\
+	\textbf{TensorBoard base on TensorFlow provides the visualization and tooling needed for machine learning experimentation.}
+\end{minipage}
+& 
+\begin{minipage}[t]{\linewidth}%
+	\begin{itemize} 
+		\item tensorflow/keras
+	\end{itemize}
+\end{minipage}
+\\
+
+% -----------------------------------------------------------------
+\arrayrulecolor{green}\hline
+\textbf{\textcolor{green}{\large Prediction}} & & \\
+\hline
+\rowcolor{Gray}
+Classification
+& 
+\begin{minipage}[t]{\linewidth}%
+	\href{https://scikit-learn.org/stable/modules/tree.html}{\color{teal}scikit-learn}
+	\textbf{The main method for classification tasks in tabular data.}
+\end{minipage}
+& 
+\begin{minipage}[t]{\linewidth}%
+	\begin{itemize} 
+		\item[*] sklearn.tree.DecisionTreeClassifier
+	\end{itemize}
+\end{minipage}
+\\
+
+\rowcolor{Gray}
+& 
+\begin{minipage}[t]{\linewidth}%
+	\href{https://www.tensorflow.org/}{\color{teal}tensorflow/keras} \\
+	\textbf{The main method for classification tasks in image datasets and audio datasets.}
+\end{minipage} 
+& 
+\begin{minipage}[t]{\linewidth} 
+	\begin{itemize} 
+		\item[$\circledast$] tensorflow/keras
+		\item etc.
+	\end{itemize} 
+\end{minipage}
+\\
+
+Regression
+& 
+\begin{minipage}[t]{\linewidth}%
+	\href{https://scikit-learn.org/stable/supervised_learning.html}{\color{teal}scikit-learn} \\
+	\textbf{Almost all popular regression algorithms are based on their classification version.}\\
+\end{minipage}
+& 
+\begin{minipage}[t]{\linewidth}%
+	\begin{itemize} 
+		\item[*] sklearn.linear\_model.LinearRegression
+		\item[*] sklearn.svm.SVR
+		\item[*] sklearn.ensemble.RandomForestRegressor
+		\item etc.
+	\end{itemize}
+\end{minipage}
+\\
+
+\hline
+
+\end{tabularx}
+\end{center}
+
+\end{document}
