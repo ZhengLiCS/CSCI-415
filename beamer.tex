@@ -123,9 +123,9 @@
 		\begin{center}
 			\begin{minipage}{0.8\textwidth}
 				\begin{itemize}
-					\item[train.csv] This table contains all the train data(features and labels).
-					\item[test.csv] This table contains the feature attributes of the test data.
-					\item[{\tiny gender\_submission.csv}] This table contains the label attributes of the test data.
+					\item[train.csv] This table contains all the training data(features and labels).
+					\item[test.csv] This table contains the feature attributes of the testing data.
+					\item[{\tiny gender\_submission.csv}] This table contains the label attributes of the testing data.
 				\end{itemize}
 			\end{minipage}
 		\end{center}
@@ -141,7 +141,7 @@
 		When we already obtain the dataset, the first step is reading the dataset to the RAM.
 	\end{flushleft}
 	\begin{center}
-		\textbf{\color{blue}\footnotesize train = pd.read\_csv("datasets\/train.csv")}
+		\textbf{\color{blue}\footnotesize train = pd.read\_csv("datasets/train.csv")}
 	\end{center}
 	\begin{flushleft}
 		Combining data from two or more tables, based on the primary key.
@@ -149,16 +149,16 @@
 	\begin{center}
 		\textbf{\color{blue} \footnotesize
 			test = pd.merge(~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \\
-			left=pd.read\_csv("datasets\/gender\_submission.csv"), \\
-			right=pd.read\_csv("datasets\/test.csv"),~~~~~~~~~~~~~~~~~ \\
-			on="PassengerId")~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+			left=pd.read\_csv("datasets/gender\_submission.csv"), \\
+			right=pd.read\_csv("datasets/test.csv"),~~~~~~~~~~~~~~~~~ \\
+			on="PassengerId")~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 		}
 	\end{center}
 	\begin{block}{Remark}
 	Pandas is a hybrid of Python and SQL language. Many python-based web frameworks(ex. Django) use Pandas instead of traditional SQL operations.
 	\end{block}
 	\begin{flushleft}
-		It is convenient to view all the fields of the table by one-line command.
+		It is convenient to parse all the fields by using this method
 	\end{flushleft}
 	\begin{center}
 		\textbf{\color{blue}\footnotesize train.info()}
@@ -192,7 +192,7 @@
 		\textbf{\color{blue}train["Age"] = train["Age"].fillna(train["Age"].mean())}
 	\end{center}
 	\begin{flushleft}
-		Droping samples with missing attributes.
+		Droping samples with missing values.
 	\end{flushleft}
 	\begin{center}
 		\textbf{\color{blue}train = train.dropna()}
@@ -317,8 +317,8 @@
 	\end{center}
 	\begin{block}{Remark}
 		\begin{itemize}
-	  	\item For different attributes, we can use different standards in binning the values. but for the same attribute in different datasets, we must obey the same rule when binning the values. 
-	  	\item when we using clustering methods to discrete the continuous values, we should make sure the class is sorted in order.
+	  	\item For different attributes, we can use different standards in binning the values. But for the same attribute in different datasets, we must obey the same rule when binning the values. 
+	  	\item When we using clustering methods to discrete the continuous values, we should make sure the class is sorted in order.
 		\end{itemize}
 	\end{block}
 	\begin{flushleft}
@@ -421,7 +421,7 @@
 \begin{frame}
 	\frametitle{Dimensionality Reduction}
 	\begin{flushleft}
-		Before constructing a neural network, We can use PCA to reduce the dimension of features. PCA is an SVD-based method. Its core is to remain the parts with high Singular Values which is similar to the image compression technology.
+		The one-hot encoder will greatly increase the dimension of features, so we can use PCA to reduce it. PCA is an SVD-based method. Its core is to remain the parts with high Singular Values which is similar to the image compression technology.
 	\end{flushleft}
 	\begin{center}
 			\begin{figure}
